@@ -1,1 +1,1 @@
-# the-initialAfrica-explore
+# THEE_ORIGINAL_AFRICA-DISCOVER-APP

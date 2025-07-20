@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Discover Africa</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #2d2d2d;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    body.dark-mode {
+      background-color: #181818;
+      color: #e0e0e0;
+    }
+
+    header {
+      background: #ff3d7d;
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 5px solid #ff8f70;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      margin-top: 0.6rem;
+      opacity: 0.95;
+    }
+
+    .about-btn {
+      display: inline-block;
+      background: #fff;
+      color: #ff3d7d;
+      padding: 0.75rem 1.7rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid #ff3d7d;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .about-btn:hover {
+      background: #ff3d7d;
+      color: #fff;
+    }
+
+    .toggle-buttons {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .toggle-buttons button {
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+      margin: 0 0.5rem;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    #darkButton {
+      background-color: #333;
+      color: #fff;
+    }
+
+    #brightButton {
+      background-color: #ff8f70;
+      color: #fff;
+    }
+
+    .toggle-buttons button:hover {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+
+    .place {
+      max-width: 1100px;
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 2rem auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      transition: transform 0.3s ease;
+      gap: 2rem;
+      padding: 1.5rem;
+    }
+
+.place:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+body.dark-mode .place {
+  background-color: #222;
+}
+
+.place img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.place-info {
+  flex: 1;
+  padding: 1rem;
+}
+
+.place-info h2 {
+  color: #ff3d7d !important;
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+body.dark-mode .place-info h2 {
+  color: #ff3d7d !important;
+}
+
+.place-info h4 {
+  color: #666;
+  margin: 0.5rem 0 1rem;
+  font-weight: 400;
+}
+
+
+    body.dark-mode .place-info h4 {
+      color: #bbb;
+    }
+
+    .place-info p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .contact {
+      background-color: #ff3d7d;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      margin: 3rem auto;
+      max-width: 800px;
+    }
+
+    .contact h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      margin: 0.3rem 0;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ff8f70;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ff3d7d;
+    }
+    .wishlist-btn {
+   display: inline-block;
+      background: #fff;
+      color: #ff3d7d;
+      padding: 0.75rem 1.7rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid #ff3d7d;
+      transition: all 0.3s ease;
+      margin-top: 1rem;   }     
+
+.wishlist-btn:hover {
+ background: #ff3d7d;
+      color: #fff;
+}
+
+
+    @media (max-width: 768px) {
+      .place {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .place img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .place-info {
+        padding: 1rem;
+      }
+    
+    }
+    h2 {
+      color: #ff3d7d;
+      margin-top: 0;
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Discover Africa's Beautiful Destinations</h1>
+  <p>CLICK ON THE IMAGES TO BOOK YOUR UNFORGETABLE TRIPS IN AFRICA!!😁</p>
+      <p> Your gateway to the best tourist spots</p>
+  
+</header>
+
+<div style="text-align:center;">
+  <a href="about.html" class="about-btn">About Us</a>
+  <a href="wishlist.html" class="wishlist-btn">Wish List Travels✨</a>
+</div>
+
+<div class="toggle-buttons">
+  <button id="darkButton">Dark Mode</button>
+  <button id="brightButton">Bright Mode</button>
+</div>
+
+<div class="place">
+  <a href="https://maasaimara.ke/" onclick="openDeepLink(event, 'masaimara://home', 'https://discoverafrica.app/masaimara')">
+    <img src="maasaimara.jpg" alt="Masai Mara" /> </a>
+  <div class="place-info">
+    <h2>Masai Mara National Reserve</h2>
+    <h4>Location: Kenya</h4>
+    <p>The Masai Mara is one of Africa's most famous safari parks. Located in southwest Kenya, it's home to the Big Five and famous for its breathtaking landscapes and the annual wildebeest migration.</p>
+  </div>
+</div>
+
+</div>
+<div class="place">
+ <a href="https://victoriafallstravel.com" onclick="openDeepLink(event, 'victoriafalls://home', 'https://www.victoriafallshotel.com//victoriafalls')">
+  <img src="victoriafalls.jpg" alt="Victoria Falls" />
+</a>
+  <div class="place-info">
+    <h2>Victoria Falls</h2>
+    <h4>Location: Zambia/Zimbabwe</h4>
+    <p>One of the largest and most famous waterfalls in the world, known for its breathtaking beauty and the roar of the water.</p>
+  </div>
+
+  <div class="place">
+  <a href="https://www.sanparks.org/?home" onclick="openDeepLink(event, 'tablemountain://home', 'https://www.sanparks.org/parks/table-mountain/tablemountain')">
+<img src="tablemountain.jpg"alt="Table Mountain" /></a>
+  <div class="place-info">
+    <h2>Table Mountain</h2>
+    <h4>Location: South Africa</h4>
+    <p>Iconic flat-topped mountain in Cape Town offering stunning views of the city and ocean.</p>
+  </div>
+</div>
+
+<div class="place">
+  <a href="https://blyderivercanyon.co.za/" onclick="openDeepLink(event,'blydecanon://home','https://www.blyderivercanyon.co.za//blyderivercanyon')">
+    <img src="blydecanon.jpg" alt="Blyde River Canyon" />
+  </a>
+  <div class="place-info">
+    <h2>Blyde River Canyon</h2>
+    <h4>Location: South Africa</h4>
+    <p>One of the largest green canyons in the world with lush vegetation and dramatic cliffs.</p>
+  </div>
+</div>
+
+<div class="place">
+  <a href="https://saharadesertcamping.com/" onclick="openDeepLink(event,'saharadesert://home','https://saharadesertcamping.com//saharadesertcamping')">
+    <img src="saharadesert.jpg" alt="Sahara Desert - Majestic dunes and oases" />
+  </a>
+  <div class="place-info">
+    <h2>Sahara Desert</h2>
+    <h4>Location: Northern Africa</h4>
+    <p>The world’s largest hot desert, spanning across 11 countries with majestic dunes and oases.</p>
+  </div>
+</div>
+<div class="place">
+  <a href="https://kilimanjarobooking.com/" onclick="openDeepLink(event, 'kilimanjaro://home', 'https://kilimanjarobooking.com//kilimanjarobooking')">
+    <img src="kilimanjaro.jpg" alt="Mount Kilimanjaro" />
+  </a>
+  <div class="place-info">
+    <h2>Mount Kilimanjaro</h2>
+    <h4>Location: Tanzania</h4>
+    <p>Africa’s highest mountain and one of the most famous trekking destinations on the continent.</p>
+  </div>
+</div>
+
+
+<div class="place">
+<a href="https://www.sossusvlei.org/accommodation/beyond-sossusvlei-desert-lodge/" onclick="openDeepLink(event, 'sossusvlei://home', 'https://www.sossusvlei.org//sossusvlei')">
+  <img src="Sossusvlei.jpg" alt="Sossusvlei - Spectacular red sand dunes in the Namib Desert" />
+</a>
+<div class="place-info">
+  <h2>Sossusvlei</h2>
+  <h4>Location: Namibia</h4>
+  <p>Spectacular red sand dunes against the bright blue skies of the Namib Desert.</p>
+</div>
+</div>
+<div class="place">
+  <a href="https://www.marrakech-desert-trips.com/tours/marrakech-walking-tour/" onclick="openDeepLink(event, 'marrakechmedina://home', 'https://www.marrakech-desert-trips.com//marrakech')">
+<img src="Marrakech Medina.jpg"alt="Marrakech Medina"/></a>
+  <div class="place-info">
+    <h2>Marrakech Medina</h2>
+    <h4>Location: Morocco</h4>
+    <p>A vibrant maze of souks, historic palaces, and gardens at the heart of this historic city.</p>
+  </div>
+</div>
+<div class="place">
+  <a href="https://africanoverlandtours.com/tours/lake-malawi/" onclick="openDeepLink(event, 'lakemalawi://home', 'https://africanoverlandtours.com//lakemalawi')">
+    <img src="malawi.jpg" alt="Lake Malawi - Crystal-clear freshwater lake in Malawi" />
+  </a>
+  <div class="place-info">
+    <h2>Lake Malawi</h2>
+    <h4>Location: Malawi</h4>
+    <p>Crystal-clear freshwater lake known for its rich biodiversity and tropical beaches.</p>
+  </div>
+</div>
+<div class="place">
+<a href="https://www.volcanoesrwanda.com/tours/" onclick="openDeepLink(event, 'volcanoespark://home', 'https://www.volcanoesrwanda.com//volcanoes')">
+ <img src="volcanoes.jpg"alt="Volcanoes National Park"/></a>
+  <div class="place-info">
+    <h2>Volcanoes National Park</h2>
+    <h4>Location: Rwanda</h4>
+    <p>Home to the endangered mountain gorillas and volcanic peaks surrounded by lush forest.</p>
+  </div>
+</div>
+<div class="place">
+  <a href="https://www.safaribookings.com/tours/okavango" onclick="openDeepLink(event, 'okavangodelta://home', 'https://www.safaribookings.com//okavango')">
+    <img src="Okavango Delta.jpg" alt="Okavango Delta" />
+   
+  </a>
+  <div class="place-info">
+    <h2>Okavango Delta</h2>
+    <h4>Location: Botswana</h4>
+    <p>An incredible inland delta with diverse wildlife and unique seasonal floodplains.</p>
+  </div>
+</div>
+<div class="place">
+  <a href="https://www.tripadvisor.com/Attractions-g482884-Activities-c42-Zanzibar_Island_Zanzibar_Archipelago.html" onclick="openDeepLink(event, 'zanzibar://home', 'https://www.tripadvisor.com//zanzibar')">
+    <img src="zanzibar.jpg" alt="Zanzibar" />
+    
+  </a>
+  <div class="place-info">
+    <h2>Zanzibar</h2>
+    <h4>Location: Tanzania</h4>
+    <p>A tropical island paradise famed for its white-sand beaches and rich Swahili culture.</p>
+  </div>
+</div>
+<div class="place">
+  <a href="https://www.lalibelatours.com/" onclick="openDeepLink(event, 'lalibela://home', 'https://www.lalibelatours.com//lalibela')">
+    <img src="Lalibela Rock-Hewn Churches.jpg" alt="Lalibela churches" />
+    
+  </a>
+  <div class="place-info">
+    <h2>Lalibela Rock-Hewn Churches</h2>
+    <h4>Location: Ethiopia</h4>
+    <p>Ancient rock-hewn churches carved into stone — a sacred pilgrimage site and architectural marvel.</p>
+  </div>
+</div>
+
+<info class="contact">
+  
+<h3>Contact Us for more suggestions &amp; Tours</h3>
+  <p>Phone: 0701025883</p>
+</div>
+
+<div class="footer">
+  <footer>
+  <p>&copy; 2025 Discover Africa. All rights reserved. Created by Joan Nyoro.</p>
+</footer>
+</div>
+
+
+<script>
+
+  function openDeepLink(event, appLink, fallbackLink) {
+    event.preventDefault();
+    
+    window.location.href = appLink;
+
+    
+    setTimeout(() => {
+      window.location.href = fallbackLink;
+    }, 1000); 
+  }
+  const darkButton = document.getElementById('darkButton');
+  const brightButton = document.getElementById('brightButton');
+
+  darkButton.addEventListener('click', () => {
+    document.body.classList.add('dark-mode');
+  });
+
+  brightButton.addEventListener('click', () => {
+    document.body.classList.remove('dark-mode');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dream Travel Wishlist with Checklist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f5f7;
+      color: #333;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      color: #2d2d2d;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #a88bb9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      height: 600px;
+      overflow-y: auto;
+    }
+
+    form {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      color: #4b3a85;
+    }
+
+    input[type="text"]::placeholder {
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    input[type="text"]:focus {
+      background: rgba(255 255 255 / 0.4);
+      color: #4b3a85;
+      box-shadow: inset 0 3px 12px rgba(255 255 255 / 0.5);
+    }
+
+    button {
+      background-color: #ff3d7d;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 61, 125, 0.4);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff1a5a;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(255, 26, 90, 0.6);
+    }
+
+    .destination-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .destination {
+      background: rgba(255 255 255 / 0.15);
+      border-radius: 18px;
+      padding: 18px 22px;
+      box-shadow:
+        0 8px 15px rgba(255 255 255 / 0.25),
+        inset 0 0 30px rgba(255 255 255 / 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      color: #3e2f61;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: default;
+      position: relative;
+    }
+
+    .destination:hover {
+      transform: translateY(-5px);
+    }
+
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      margin-top: 6px;
+      accent-color: #ff3d7d;
+      flex-shrink: 0;
+    }
+
+    .text-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-container.completed {
+      opacity: 0.5;
+      text-decoration: line-through;
+      color: #9e7fb7;
+    }
+
+    .text-container h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #000000;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      user-select: text;
+    }
+
+    .notes-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #222222;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+      user-select: none;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 70px;
+      border-radius: 12px;
+      border: 1.5px solid #9b7fc1;
+      padding: 12px 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #4b3a85;
+      background-color: #f0e9fb;
+      box-shadow: inset 0 2px 8px rgba(154, 133, 197, 0.2);
+      resize: vertical;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      outline: none;
+    }
+
+    textarea::placeholder {
+      color: #a798bd;
+    }
+
+    textarea:focus {
+      border-color: #6e50a1;
+      box-shadow: 0 0 14px rgba(110, 80, 161, 0.7);
+      background-color: #f9f7fe;
+    }
+
+    .completed h3,
+    .completed .notes-label,
+    .completed textarea {
+      text-decoration: line-through;
+      opacity: 0.6;
+      color: #957fc1;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #ff3d7d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .back-button:hover {
+      background: #ff8f70;
+      transform: translateY(-2px);
+    }
+
+    .delete-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff5e6c;
+      border: none;
+      color: white;
+      padding: 6px 10px;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .delete-button:hover {
+      background: #e5485c;
+    }
+
+    @media (max-width: 500px) {
+      form {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .destination {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      input[type="checkbox"] {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>My Dream Travel Wishlist ✈️</h1>
+  <div class="container">
+    <form id="dreamForm">
+      <input type="text" id="placeInput" placeholder="Add a dream destination..." required />
+      <button type="submit" class="add-button">Add</button>
+      <button type="button" id="randomButton">🎲 Random Dream</button>
+    </form>
+
+    <div class="destination-list" id="destinationList"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('dreamForm');
+    const input = document.getElementById('placeInput');
+    const list = document.getElementById('destinationList');
+    const randomButton = document.getElementById('randomButton');
+
+    const suggestions = [
+      "Kyoto, Japan", "Santorini, Greece", "Banff, Canada", "Reykjavík, Iceland",
+      "Bora Bora, French Polynesia", "Rome, Italy", "Sydney, Australia",
+      "Cape Town, South Africa", "Marrakech, Morocco", "Great Barrier Reef, Australia",
+      "Kenya", "Petra, Jordan", "New York City, USA", "Queenstown, New Zealand",
+      "Machu Picchu, Peru"
+    ];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const place = input.value.trim();
+      if (place !== '') {
+        addDestination(place);
+        input.value = '';
+      }
+    });
+
+    randomButton.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * suggestions.length);
+      const randomPlace = suggestions[randomIndex];
+      addDestination(randomPlace);
+    });
+
+    function addDestination(name) {
+      const card = document.createElement('div');
+      card.className = 'destination';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+
+      const textContainer = document.createElement('div');
+      textContainer.className = 'text-container';
+
+      const title = document.createElement('h3');
+      title.textContent = name;
+
+      const notesLabel = document.createElement('div');
+      notesLabel.className = 'notes-label';
+      notesLabel.textContent = 'Dreaming big!! 🌍';
+
+      const notesTextarea = document.createElement('textarea');
+      notesTextarea.placeholder = 'Add your notes here...';
+
+      const savedNote = localStorage.getItem('note-' + name);
+      if (savedNote) {
+        notesTextarea.value = savedNote;
+      }
+
+      notesTextarea.addEventListener('input', () => {
+        localStorage.setItem('note-' + name, notesTextarea.value);
+      });
+
+      const deleteButton = document.createElement('button');
+      deleteButton.className = 'delete-button';
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        list.removeChild(card);
+        localStorage.removeItem('note-' + name);
+      });
+
+      textContainer.appendChild(title);
+      textContainer.appendChild(notesLabel);
+      textContainer.appendChild(notesTextarea);
+
+      card.appendChild(checkbox);
+      card.appendChild(textContainer);
+      card.appendChild(deleteButton);
+
+      checkbox.addEventListener('change', () => {
+        textContainer.classList.toggle('completed', checkbox.checked);
+      });
+
+      list.appendChild(card);
+    }
+  </script>
+
+  <a href="joan.html" class="back-button">Back to Home</a>
+</body>
+</html>
